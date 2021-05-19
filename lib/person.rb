@@ -1,9 +1,25 @@
-# your code goes here
+require 'pry'
+
 class Person
     attr_reader :name
     attr_accessor :bank_account
-    attr_accessor :happiness
     attr_accessor :hygiene
+
+    def happiness
+        @happiness
+    end
+
+    def happiness=(happiness)
+        @happiness = happiness.clamp(0,10)
+    end
+
+    def hygiene
+        @hygiene
+    end
+
+    def hygiene=(hygiene)
+        @hygiene = hygiene.clamp(0,10)
+    end
 
     def initialize(name)
         @name = name
@@ -35,6 +51,7 @@ class Person
 
     def take_bath
         @hygiene= @hygiene + 4
+        # self.hygiene + 4
         "♪ Rub-a-dub just relaxing in the tub ♫"
     end
 
